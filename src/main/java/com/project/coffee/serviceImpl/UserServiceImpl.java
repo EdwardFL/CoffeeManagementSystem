@@ -17,8 +17,13 @@ import java.util.Objects;
 @Slf4j
 @Service
 public class UserServiceImpl implements UserService {
+
+    private final UserDAO userDAO;
+
     @Autowired
-    UserDAO userDAO;
+    public UserServiceImpl(UserDAO userDAO) {
+        this.userDAO = userDAO;
+    }
 
     @Override
     public ResponseEntity<String> signUp(Map<String, String> requestMap) {

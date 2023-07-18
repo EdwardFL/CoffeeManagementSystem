@@ -13,8 +13,13 @@ import java.util.Map;
 
 @RestController
 public class UserRestImpl implements UserRest {
+
+    private final UserService userService;
+
     @Autowired
-    UserService userService;
+    public UserRestImpl(UserService userService) {
+        this.userService = userService;
+    }
 
     @Override
     public ResponseEntity<String> signUp(Map<String, String> requestMap) {
